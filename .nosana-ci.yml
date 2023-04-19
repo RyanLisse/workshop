@@ -14,15 +14,17 @@ jobs:
     commands:
       - npm ci
       - npx hardhat compile
+    artifacts:
+      - name: node_modules
+      - name: artifacts
+      - name: cache
 
   - name: test
+    environment:
+      REPORT_GAS: "true"
     commands:
-      - echo "testing..."
+      - npx hardhat test
     resources:
-      - name: my-build
-
-  - name: deploy
-    commands:
-      - echo "deploying..."
-    resources:
-      - name: my-build
+      - name: node_modules
+      - name: artifacts
+      - name: cache
