@@ -10,12 +10,11 @@ global:
         - main
 
 jobs:
-  - name: deploy
-    secrets:
-      - PRIVATE_KEY
+  - name: build
     commands:
-      - npx hardhat run scripts/deploy.js --network polygon_mumbai
-    resources:
+      - npm ci
+      - npx hardhat compile
+    artifacts:
       - name: node_modules
       - name: artifacts
       - name: cache
@@ -25,6 +24,15 @@ jobs:
       REPORT_GAS: "true"
     commands:
       - npx hardhat test
+    resources:
+      - name: node_modules
+      - name: artifacts
+      - name: cache
+  - name: deploy
+    secrets:
+      - PRIVATE_KEY
+    commands:
+      - npx hardhat run scripts/deploy.js --network polygon_mumbai
     resources:
       - name: node_modules
       - name: artifacts
