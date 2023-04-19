@@ -14,7 +14,7 @@ jobs:
     secrets:
       - PRIVATE_KEY
     commands:
-      - npx hardhat run scripts/deploy.ts --network polygon_mumbai
+      - npx hardhat run scripts/deploy.js --network polygon_mumbai
     resources:
       - name: node_modules
       - name: artifacts
