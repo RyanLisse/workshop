@@ -8,7 +8,7 @@ Your project comes with tests that use Mocha, Chai, and Ethers.js.
 
 If you take a look in the `test/` folder, you'll see a test file.
 
-You can run your tests with 
+You can run your tests with
 
 ```shell
 npx hardhat test
@@ -52,7 +52,7 @@ jobs:
       - name: node_modules
       - name: artifacts
       - name: cache
-        
+
   - name: test
     environment:
       REPORT_GAS: "true"
