@@ -3,7 +3,7 @@ nosana:
   description: Build, Test and Deploy dApps!
 
 global:
-  image: alpine
+  image: node:16
   trigger:
     push:
       branches:
@@ -12,10 +12,8 @@ global:
 jobs:
   - name: build
     commands:
-      - echo "building..."
-    artifacts:
-      - name: my-build
-        path: .
+      - npm ci
+      - npx hardhat compile
 
   - name: test
     commands:

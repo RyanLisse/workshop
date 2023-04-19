@@ -74,7 +74,7 @@ jobs:
   - name: build
     commands:
       - npm ci
-      - npx hardhat compile 
+      - npx hardhat compile
 ```
 
 **HINT:** for `image` choose [node](https://hub.docker.com/_/node), e.g. `node:16`
