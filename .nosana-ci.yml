@@ -29,9 +29,3 @@ jobs:
       - name: node_modules
       - name: artifacts
       - name: cache
-
-  - name: deploy
-    commands:
-      - echo "deploying..."
-    resources:
-      - name: my-build
